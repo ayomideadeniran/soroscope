@@ -1,7 +1,15 @@
 use config::{Config, ConfigError};
 use serde::Deserialize;
+use crate::errors::AppError;
+use axum::{routing::get, Router};
+use std::env;
+use std::path::PathBuf;
+
+mod benchmarks;
+mod errors;
 
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 struct AppConfig {
     server_port: u16,
     rust_log: String,
@@ -22,25 +30,16 @@ fn load_config() -> Result<AppConfig, ConfigError> {
     settings.try_deserialize()
 }
 
-fn main() {
-    let config = load_config().expect("Failed to load configuration");
-    println!("SoroScope CLI Initialized with config: {:?}", config);
-mod benchmarks;
-mod errors;
-
-use crate::errors::AppError;
-use axum::{routing::get, Router};
-use std::env;
-use std::path::PathBuf;
-
 #[tokio::main]
 async fn main() {
+    let config = load_config().expect("Failed to load configuration");
+    println!("SoroScope CLI Initialized with config: {:?}", config);
+
     // CLI Argument Handling
     let args: Vec<String> = env::args().collect();
     if args.len() > 1 && args[1] == "benchmark" {
         println!("Starting SoroScope Benchmark...");
         // Locate WASM - assuming running from workspace root or core
-        // Attempt to find it relative to current directory or know location
         let possible_paths = vec![
             "target/wasm32-unknown-unknown/release/soroban_token_contract.wasm",
             "../target/wasm32-unknown-unknown/release/soroban_token_contract.wasm",
@@ -77,7 +76,7 @@ async fn main() {
         );
 
     // run it with hyper on localhost:3000
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{}", config.server_port)).await.unwrap();
     println!("listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
 }
