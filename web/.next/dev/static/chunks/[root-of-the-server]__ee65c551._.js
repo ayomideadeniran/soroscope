@@ -526,27 +526,27 @@ const WalletProvider = ({ children })=>{
         {
             id: "freighter",
             name: "Freighter",
-            icon: "/icons/freighter.png"
+            icon: "https://stellar.creit.tech/wallet-icons/freighter.png"
         },
         {
             id: "albedo",
             name: "Albedo",
-            icon: "/icons/albedo.png"
+            icon: "https://stellar.creit.tech/wallet-icons/albedo.png"
         },
         {
             id: "xbull",
             name: "xBull",
-            icon: "/icons/xbull.png"
+            icon: "https://stellar.creit.tech/wallet-icons/xbull.png"
         },
         {
             id: "rabet",
             name: "Rabet",
-            icon: "/icons/rabet.png"
+            icon: "https://stellar.creit.tech/wallet-icons/rabet.png"
         },
         {
             id: "lobstr",
             name: "Lobstr",
-            icon: "/icons/lobstr.png"
+            icon: "https://stellar.creit.tech/wallet-icons/lobstr.png"
         }
     ];
     const connectWallet = async (moduleId)=>{

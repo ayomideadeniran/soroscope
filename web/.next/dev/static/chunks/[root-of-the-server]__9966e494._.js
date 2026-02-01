@@ -1550,93 +1550,6 @@ function ResultViewer({ result }) {
                 fileName: "[project]/components/Resultviewer.tsx",
                 lineNumber: 72,
                 columnNumber: 11
-            }, this),
-            result.resourceCost && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                style: {
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '12px',
-                    fontSize: '13px'
-                },
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            backgroundColor: '#0d1117',
-                            padding: '12px',
-                            borderRadius: '6px',
-                            border: '1px solid #30363d'
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                style: {
-                                    color: '#00d9ff'
-                                },
-                                children: "Fee:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/Resultviewer.tsx",
-                                lineNumber: 110,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    margin: '4px 0 0 0',
-                                    color: '#8b949e'
-                                },
-                                children: [
-                                    result.resourceCost.fee,
-                                    " XLM"
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/Resultviewer.tsx",
-                                lineNumber: 111,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/Resultviewer.tsx",
-                        lineNumber: 102,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            backgroundColor: '#0d1117',
-                            padding: '12px',
-                            borderRadius: '6px',
-                            border: '1px solid #30363d'
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                style: {
-                                    color: '#00d9ff'
-                                },
-                                children: "Instructions:"
-                            }, void 0, false, {
-                                fileName: "[project]/components/Resultviewer.tsx",
-                                lineNumber: 121,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    margin: '4px 0 0 0',
-                                    color: '#8b949e'
-                                },
-                                children: result.resourceCost.instructions
-                            }, void 0, false, {
-                                fileName: "[project]/components/Resultviewer.tsx",
-                                lineNumber: 122,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/Resultviewer.tsx",
-                        lineNumber: 113,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/Resultviewer.tsx",
-                lineNumber: 94,
-                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
@@ -2019,8 +1932,11 @@ function generateMockResult(functionName, inputs) {
 }
 function generateMockResourceCost() {
     return {
-        fee: '0.01',
-        instructions: (Math.random() * 2 + 0.5).toFixed(1) + 'M'
+        fee: (Math.random() * 0.05).toFixed(5),
+        cpuInstructions: Math.floor(Math.random() * 50_000_000) + 1_000_000,
+        ramBytes: Math.floor(Math.random() * 20 * 1024 * 1024) + 1024 * 1024,
+        ledgerReadBytes: Math.floor(Math.random() * 10 * 1024),
+        ledgerWriteBytes: Math.floor(Math.random() * 5 * 1024)
     };
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
@@ -2122,7 +2038,7 @@ function Home() {
                                     color: '#00d9ff',
                                     letterSpacing: '0.5px'
                                 },
-                                children: "Soroscope"
+                                children: "SoroScope"
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.tsx",
                                 lineNumber: 69,

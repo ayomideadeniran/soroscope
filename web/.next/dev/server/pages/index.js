@@ -1,6 +1,6 @@
 var R=require("../chunks/ssr/[turbopack]_runtime.js")("server/pages/index.js")
-R.c("server/chunks/ssr/[root-of-the-server]__494e279e._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__0a482548._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__3a0d8893._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7f21ca10._.js")
 R.c("server/chunks/ssr/node_modules_186c80ea._.js")
 R.c("server/chunks/ssr/[externals]__e6a4d965._.js")
 R.c("server/chunks/ssr/node_modules_@creit_tech_stellar-wallets-kit_index_mjs_adf1f54e._.js")

@@ -70,6 +70,12 @@ struct ResourceReport {
     tag = "Analysis"
 )]
 async fn analyze(Json(payload): Json<AnalyzeRequest>) -> Result<Json<ResourceReport>, AppError> {
+    tracing::info!(
+        "Analyzing request for contract: {}, function: {}",
+        payload.contract_id,
+        payload.function_name
+    );
+
     // Placeholder implementation
     let report = ResourceReport {
         cpu_instructions: 1000,

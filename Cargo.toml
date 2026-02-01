@@ -6,5 +6,4 @@ members = [
     "contracts/hello_soroban",
     "contracts/storage_heavy",
     "contracts/liquidity_pool",
-    "api",
 ]
